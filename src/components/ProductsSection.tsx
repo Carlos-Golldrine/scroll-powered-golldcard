@@ -67,28 +67,25 @@ const ProductsSection = () => {
     <section
       ref={sectionRef}
       id="modelos"
-      className="relative py-32 bg-background overflow-hidden"
+      className="relative py-32 overflow-hidden"
     >
-      {/* Background decoration */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full opacity-5 blur-3xl pointer-events-none"
         style={{
-          background: "radial-gradient(circle, hsl(43, 74%, 49%) 0%, transparent 70%)",
+          background: "radial-gradient(circle, #1A56DB 0%, transparent 70%)",
         }}
       />
       
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-xs uppercase tracking-[0.3em] text-gold font-medium">
+          <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">
             Modelos de Lançamento
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mt-4">
-            Escolha o seu <span className="text-gradient-gold">GolldCard</span>
+            Escolha o seu <span className="text-gradient-blue">GolldCard</span>
           </h2>
         </div>
 
-        {/* Products grid */}
         <div ref={cardsRef} className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto perspective-1000">
           {products.map((product, index) => (
             <div
@@ -98,24 +95,19 @@ const ProductsSection = () => {
               }`}
               style={{
                 background: product.popular
-                  ? "linear-gradient(145deg, hsl(43, 50%, 15%) 0%, hsl(0, 0%, 8%) 100%)"
-                  : "linear-gradient(145deg, hsl(0, 0%, 10%) 0%, hsl(0, 0%, 6%) 100%)",
+                  ? "linear-gradient(145deg, rgba(26, 86, 219, 0.2) 0%, #1A1F2C 100%)"
+                  : "linear-gradient(145deg, #1A1F2C 0%, #111827 100%)",
                 border: product.popular
-                  ? "2px solid hsl(43, 74%, 49%)"
-                  : "1px solid hsl(0, 0%, 18%)",
+                  ? "2px solid #1A56DB"
+                  : "1px solid rgba(255,255,255,0.1)",
                 boxShadow: product.popular
-                  ? "0 30px 80px -20px rgba(212, 175, 55, 0.3)"
+                  ? "0 30px 80px -20px rgba(26, 86, 219, 0.3)"
                   : "0 20px 60px -20px rgba(0, 0, 0, 0.5)",
               }}
             >
-              {/* Popular badge */}
               {product.popular && (
                 <div
-                  className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-semibold"
-                  style={{
-                    background: "linear-gradient(135deg, hsl(43, 74%, 49%) 0%, hsl(43, 70%, 40%) 100%)",
-                    color: "hsl(0, 0%, 3%)",
-                  }}
+                  className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-semibold bg-gradient-blue text-white"
                 >
                   Mais Popular
                 </div>
@@ -125,7 +117,7 @@ const ProductsSection = () => {
                 <h3 className="font-display text-2xl font-bold text-foreground">
                   {product.name}
                 </h3>
-                <p className="text-gold text-sm mt-1">{product.subtitle}</p>
+                <p className="text-primary text-sm mt-1">{product.subtitle}</p>
                 <p className="text-muted-foreground text-sm mt-4">{product.description}</p>
                 
                 <div className="my-8">
@@ -137,7 +129,7 @@ const ProductsSection = () => {
                 <ul className="space-y-3 mb-8">
                   {product.features.map((feature, i) => (
                     <li key={i} className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                      <svg className="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       {feature}

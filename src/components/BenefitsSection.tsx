@@ -78,42 +78,37 @@ const BenefitsSection = () => {
       ref={sectionRef}
       id="beneficios"
       className="relative py-32 overflow-hidden"
-      style={{
-        background: "linear-gradient(180deg, hsl(0, 0%, 3%) 0%, hsl(0, 0%, 6%) 50%, hsl(0, 0%, 3%) 100%)",
-      }}
     >
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left side - Text */}
           <div>
-            <span className="text-xs uppercase tracking-[0.3em] text-gold font-medium">
+            <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">
               Por que escolher
             </span>
             <h2 className="font-display text-3xl md:text-5xl font-bold mt-4 mb-6">
               Por que escolher nossos{" "}
-              <span className="text-gradient-gold">cartões inteligentes?</span>
+              <span className="text-gradient-blue">cartões inteligentes?</span>
             </h2>
             <p className="text-muted-foreground text-lg">
               Tecnologia de ponta combinada com design premium para transformar suas conexões profissionais.
             </p>
           </div>
 
-          {/* Right side - Benefits list */}
           <div ref={itemsRef} className="space-y-6">
             {benefits.map((benefit, index) => (
               <div
                 key={index}
                 className="flex gap-5 p-6 rounded-2xl transition-all duration-300 hover:scale-[1.02]"
                 style={{
-                  background: "linear-gradient(145deg, hsl(0, 0%, 8%) 0%, hsl(0, 0%, 5%) 100%)",
-                  border: "1px solid hsl(0, 0%, 12%)",
+                  background: "linear-gradient(145deg, #1A1F2C 0%, #111827 100%)",
+                  border: "1px solid rgba(26, 86, 219, 0.2)",
                 }}
               >
                 <div
-                  className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-gold"
+                  className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-primary"
                   style={{
-                    background: "linear-gradient(135deg, hsla(43, 74%, 49%, 0.2) 0%, hsla(43, 74%, 49%, 0.1) 100%)",
-                    border: "1px solid hsla(43, 74%, 49%, 0.3)",
+                    background: "linear-gradient(135deg, rgba(26, 86, 219, 0.2) 0%, rgba(26, 86, 219, 0.1) 100%)",
+                    border: "1px solid rgba(26, 86, 219, 0.3)",
                   }}
                 >
                   {benefit.icon}
