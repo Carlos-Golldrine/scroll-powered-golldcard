@@ -1,52 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 222 47% 11%;
-    --foreground: 0 0% 100%;
+    --background: 220 17% 17%;
+    --foreground: 0 0% 90%;
 
-    --card: 222 33% 13%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 16%;
+    --card-foreground: 0 0% 90%;
 
-    --popover: 222 33% 13%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 16%;
+    --popover-foreground: 0 0% 90%;
 
     --primary: 220 82% 48%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 20% 19%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 220 20% 25%;
-    --muted-foreground: 220 10% 70%;
+    --muted: 220 17% 25%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 217 91% 60%;
+    --accent: 27 100% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 25%;
-    --input: 220 20% 25%;
+    --border: 220 17% 25%;
+    --input: 220 17% 25%;
     --ring: 220 82% 48%;
 
     --radius: 0.75rem;
 
-    /* Golldrine Brand Colors */
-    --golldrine-bg: 222 47% 11%;
-    --golldrine-primary: 220 82% 48%;
-    --golldrine-light: 217 91% 60%;
-    --golldrine-dark: 220 78% 36%;
-    --golldrine-card: 222 33% 13%;
-    --golldrine-secondary: 220 20% 19%;
+    /* Brand Colors */
+    --brand-dark: 220 17% 17%;
+    --brand-darker: 0 0% 16%;
+    --brand-blue: 220 82% 48%;
+    --brand-light: 0 0% 90%;
+    --brand-orange: 27 100% 50%;
 
     /* Typography */
-    --font-display: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -71,48 +68,63 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
-    background: linear-gradient(135deg, #111827, #0A0F16);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    font-weight: 700;
   }
 }
 
 @layer components {
-  .text-gradient-blue {
-    background: linear-gradient(135deg, #3F83F8 0%, #1A56DB 50%, #133FA3 100%);
+  .text-gradient-orange {
+    background: linear-gradient(135deg, #FF7700 0%, #FF9A3D 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .bg-gradient-main {
-    background: linear-gradient(135deg, #111827, #0A0F16);
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #1A56DB 0%, #3B82F6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .bg-gradient-blue {
-    background: linear-gradient(135deg, #1A56DB 0%, #3F83F8 50%, #1A56DB 100%);
+  .bg-brand-dark {
+    background-color: #1F2937;
   }
 
-  .shadow-blue {
-    box-shadow: 0 20px 60px -15px rgba(26, 86, 219, 0.4);
+  .bg-brand-darker {
+    background-color: #292929;
+  }
+
+  .bg-brand-blue {
+    background-color: #1A56DB;
+  }
+
+  .bg-brand-orange {
+    background-color: #FF7700;
+  }
+
+  .shadow-orange-glow {
+    box-shadow: 0 0 40px rgba(255, 119, 0, 0.3);
   }
 
   .shadow-blue-glow {
-    box-shadow: 0 0 60px rgba(26, 86, 219, 0.3);
+    box-shadow: 0 0 40px rgba(26, 86, 219, 0.3);
   }
 
-  .card-3d {
-    transform-style: preserve-3d;
-    perspective: 1000px;
+  .btn-primary {
+    @apply bg-brand-orange text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300;
   }
 
-  .preserve-3d {
-    transform-style: preserve-3d;
+  .btn-primary:hover {
+    @apply scale-105;
+    box-shadow: 0 10px 40px rgba(255, 119, 0, 0.4);
   }
 
-  .perspective-1000 {
-    perspective: 1000px;
+  .section-dark {
+    background-color: #292929;
   }
 }

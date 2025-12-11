@@ -1,29 +1,20 @@
-import Header from "@/components/Header";
-import HeroContent from "@/components/HeroContent";
-import ScrollJourneyCard from "@/components/ScrollJourneyCard";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import ProductsSection from "@/components/ProductsSection";
+import HeroSection from "@/components/HeroSection";
 import BenefitsSection from "@/components/BenefitsSection";
+import SocialProofSection from "@/components/SocialProofSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
+import OfferSection from "@/components/OfferSection";
+import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-main">
-      <Header />
-      
-      {/* Hero content (text only - card is in ScrollJourneyCard) */}
-      <HeroContent />
-      
-      {/* Scroll journey with the single card */}
-      <ScrollJourneyCard />
-      
-      {/* Static sections after the scroll journey */}
-      <main className="relative z-10 bg-gradient-main">
-        <HowItWorksSection />
-        <ProductsSection />
-        <BenefitsSection />
-      </main>
-      
+    <div className="min-h-screen">
+      <HeroSection />
+      <BenefitsSection />
+      <SocialProofSection />
+      <HowItWorksSection />
+      <OfferSection />
+      <FinalCTASection />
       <Footer />
     </div>
   );

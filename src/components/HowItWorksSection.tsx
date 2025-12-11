@@ -1,124 +1,70 @@
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Button } from "./ui/button";
+import { MessageCircle, Bot, CalendarCheck, Smartphone } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger);
+const steps = [
+  {
+    icon: MessageCircle,
+    step: "01",
+    title: "Cliente envia mensagem",
+    description: "Seu cliente manda uma mensagem pelo WhatsApp, a qualquer hora."
+  },
+  {
+    icon: Bot,
+    step: "02",
+    title: "Agente responde de forma humanizada",
+    description: "A IA conversa naturalmente, entende a necessidade e oferece soluções."
+  },
+  {
+    icon: CalendarCheck,
+    step: "03",
+    title: "Agenda, lembra e cobra",
+    description: "O agente marca na agenda, envia lembretes e realiza cobranças automaticamente."
+  },
+  {
+    icon: Smartphone,
+    step: "04",
+    title: "Você acompanha tudo",
+    description: "Receba notificações e acompanhe pelo WhatsApp ou painel de controle."
+  }
+];
 
 const HowItWorksSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const stepsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!sectionRef.current || !stepsRef.current) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        stepsRef.current?.children || [],
-        { opacity: 0, y: 60 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 70%",
-            end: "bottom 50%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  const steps = [
-    {
-      icon: "⚡",
-      title: "Rápido",
-      description: "Compartilhe informações em segundos",
-    },
-    {
-      icon: "📱",
-      title: "Universal",
-      description: "Funciona em qualquer smartphone",
-    },
-    {
-      icon: "🎨",
-      title: "Personalizável",
-      description: "Design único para sua marca",
-    },
-  ];
-
   return (
-    <section
-      ref={sectionRef}
-      id="como-funciona"
-      className="relative py-32"
-    >
-      <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">
-            Veja Como Funciona
-          </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold mt-4 mb-6">
-            Descubra como é simples conectar pessoas e negócios{" "}
-            <span className="text-gradient-blue">com apenas um toque</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Clique para assistir a demonstração
-          </p>
-        </div>
+    <section className="py-20 px-6 bg-brand-dark">
+      <div className="max-w-lg mx-auto">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-4">
+          Como <span className="text-gradient-blue">funciona</span>
+        </h2>
+        <p className="text-center text-brand-light/70 mb-12">
+          Simples, rápido e eficiente
+        </p>
 
-        {/* Video placeholder */}
-        <div className="relative max-w-4xl mx-auto mb-20">
-          <div
-            className="aspect-video rounded-2xl overflow-hidden"
-            style={{
-              background: "linear-gradient(145deg, #1A1F2C 0%, #111827 100%)",
-              boxShadow: "0 40px 100px -30px rgba(0, 0, 0, 0.8), 0 0 60px rgba(26, 86, 219, 0.1)",
-            }}
-          >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <button
-                className="w-20 h-20 rounded-full flex items-center justify-center transition-transform hover:scale-110 bg-gradient-blue shadow-blue"
-              >
-                <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </button>
-            </div>
-            
-            <div className="absolute inset-0 rounded-2xl border border-primary/20 pointer-events-none" />
-          </div>
-        </div>
+        <div className="relative">
+          {/* Vertical line */}
+          <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-gradient-to-b from-brand-blue via-brand-orange to-brand-blue" />
 
-        {/* Steps */}
-        <div ref={stepsRef} className="grid md:grid-cols-3 gap-8">
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className="text-center p-8 rounded-2xl transition-all duration-300 hover:scale-105"
-              style={{
-                background: "linear-gradient(145deg, #1A1F2C 0%, #111827 100%)",
-                border: "1px solid rgba(26, 86, 219, 0.2)",
-              }}
-            >
-              <div
-                className="w-16 h-16 rounded-2xl mx-auto mb-6 flex items-center justify-center text-3xl bg-gradient-blue"
-              >
-                {step.icon}
+          <div className="space-y-8">
+            {steps.map((item, index) => (
+              <div key={index} className="relative flex gap-6">
+                {/* Icon circle */}
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-darker border-2 border-brand-blue flex items-center justify-center z-10">
+                  <item.icon className="w-5 h-5 text-brand-blue" />
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 pb-2">
+                  <span className="text-xs font-bold text-brand-orange tracking-wider">
+                    PASSO {item.step}
+                  </span>
+                  <h3 className="text-lg font-semibold text-white mt-1 mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-brand-light/70 text-sm leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
               </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-2">
-                {step.title}
-              </h3>
-              <p className="text-muted-foreground">{step.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
