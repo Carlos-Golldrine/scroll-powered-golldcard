@@ -63,16 +63,16 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         brand: {
-          dark: "#1F2937",
-          darker: "#292929",
-          blue: "#1A56DB",
-          light: "#E5E5E5",
-          orange: "#FF7700",
+          dark: "hsl(220 26% 17%)",
+          darker: "hsl(0 0% 16%)",
+          blue: "hsl(220 79% 48%)",
+          light: "hsl(0 0% 90%)",
+          orange: "hsl(28 100% 50%)",
         },
       },
       fontFamily: {
-        display: ["Space Grotesk", "sans-serif"],
-        body: ["DM Sans", "sans-serif"],
+        display: ["Codec Pro", "sans-serif"],
+        body: ["TT Norms", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
