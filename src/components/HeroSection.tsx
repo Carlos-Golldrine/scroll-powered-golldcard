@@ -1,4 +1,5 @@
 import { MessageCircle, Volume2 } from "lucide-react";
+import Spline from '@splinetool/react-spline';
 
 const HeroSection = () => {
   const whatsappLink = "https://wa.me/5511999999999?text=Olá! Quero saber mais sobre o Agente de IA.";
@@ -10,6 +11,14 @@ const HeroSection = () => {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-blue/10 rounded-full blur-[120px]" />
       
       <div className="relative z-10 max-w-4xl mx-auto w-full text-center">
+        {/* 3D Robot */}
+        <div className="w-full h-[280px] sm:h-[320px] mb-6 relative">
+          <Spline 
+            scene="https://prod.spline.design/robotfollowcursorforlandingpage-j8kO6deyH2JfysDLxUdC8t5D/scene.splinecode"
+            className="w-full h-full"
+          />
+        </div>
+
         {/* Main Headline */}
         <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold leading-tight text-white mb-6">
           Automatize seu{" "}
