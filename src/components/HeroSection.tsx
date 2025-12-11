@@ -1,59 +1,73 @@
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Volume2 } from "lucide-react";
 
 const HeroSection = () => {
   const whatsappLink = "https://wa.me/5511999999999?text=Olá! Quero saber mais sobre o Agente de IA.";
 
   return (
-    <section className="min-h-screen flex flex-col justify-center px-6 py-12 bg-brand-dark relative overflow-hidden">
-      {/* Background gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-dark via-brand-dark to-brand-darker opacity-90" />
+    <section className="min-h-screen flex flex-col justify-center px-6 py-16 bg-brand-dark relative overflow-hidden">
+      {/* Background gradient effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-dark via-brand-dark to-brand-darker" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-blue/10 rounded-full blur-[120px]" />
       
-      <div className="relative z-10 max-w-lg mx-auto w-full">
+      <div className="relative z-10 max-w-4xl mx-auto w-full text-center">
+        {/* Main Headline */}
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold leading-tight text-white mb-6">
+          Automatize seu{" "}
+          <span className="bg-brand-blue px-3 py-1 rounded-lg">Atendimento</span>
+          {" "}de clientes
+        </h1>
+        
+        <p className="text-lg sm:text-xl text-brand-light/80 mb-4 font-body">
+          Converta conversas em agendamentos,{" "}
+          <span className="font-semibold text-white">mesmo enquanto você dorme</span>.
+        </p>
+        
+        <p className="text-base text-muted-foreground mb-8 font-body">
+          Essa foi a forma que encontrei para crescer meu negócio{" "}
+          <span className="bg-brand-orange/20 text-brand-orange px-2 py-0.5 rounded font-medium">
+            sem precisar de funcionários extras
+          </span>
+          {" "}com muito menos esforço.
+        </p>
+
         {/* Video placeholder */}
-        <div className="w-full aspect-video bg-brand-darker rounded-2xl mb-8 flex items-center justify-center border border-white/10 overflow-hidden">
-          <div className="text-center text-muted-foreground">
-            <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-brand-blue/20 flex items-center justify-center">
-              <div className="w-0 h-0 border-l-[20px] border-l-white border-y-[12px] border-y-transparent ml-1" />
-            </div>
-            <p className="text-sm">Vídeo em breve</p>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="text-center space-y-6">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
-            Seu novo agente inteligente que trabalha por você{" "}
-            <span className="text-gradient-orange">24h</span>.
-          </h1>
+        <div className="relative w-full max-w-2xl mx-auto aspect-video bg-gradient-to-br from-brand-darker to-brand-dark rounded-2xl mb-8 border-2 border-white/10 overflow-hidden shadow-2xl">
+          {/* Decorative frame */}
+          <div className="absolute inset-2 border border-white/5 rounded-xl" />
           
-          <p className="text-lg text-brand-light/80 leading-relaxed">
-            Converte conversas em agendamentos, lembra clientes que esquecem, 
-            e cobra de forma educada — tudo automaticamente.
-          </p>
-
-          {/* CTA Button */}
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 btn-primary text-lg mt-4"
-          >
-            <MessageCircle className="w-6 h-6" />
-            Solicitar um Orçamento
-          </a>
-
-          {/* Trust indicator */}
-          <p className="text-sm text-muted-foreground mt-6">
-            +200 empresas já automatizaram seu atendimento
-          </p>
+          {/* Video content placeholder */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center">
+              <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-brand-blue flex items-center justify-center shadow-lg shadow-brand-blue/30">
+                <Volume2 className="w-8 h-8 text-white" />
+              </div>
+              <p className="text-white font-medium mb-1">Seu vídeo já começou</p>
+              <p className="text-muted-foreground text-sm">Clique para ouvir</p>
+            </div>
+          </div>
+          
+          {/* Corner decorations */}
+          <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-brand-orange/50 rounded-tl-lg" />
+          <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-brand-orange/50 rounded-tr-lg" />
+          <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-brand-orange/50 rounded-bl-lg" />
+          <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-brand-orange/50 rounded-br-lg" />
         </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-          <div className="w-1.5 h-3 bg-white/50 rounded-full" />
-        </div>
+        {/* CTA Button */}
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-green-500/30 uppercase tracking-wide"
+        >
+          <MessageCircle className="w-6 h-6" />
+          Quero ter clientes todos os dias
+        </a>
+
+        {/* Trust indicator */}
+        <p className="text-sm text-muted-foreground mt-8">
+          +200 empresas já automatizaram seu atendimento
+        </p>
       </div>
     </section>
   );
