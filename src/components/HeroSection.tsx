@@ -10,15 +10,6 @@ const HeroSection = () => {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-blue/10 rounded-full blur-[120px]" />
       
       <div className="relative z-10 max-w-4xl mx-auto w-full text-center">
-        {/* 3D Robot via iframe */}
-        <div className="w-full h-[280px] sm:h-[320px] mb-6 relative">
-          <iframe 
-            src="https://my.spline.design/robotfollowcursorforlandingpage-j8kO6deyH2JfysDLxUdC8t5D/"
-            frameBorder="0"
-            className="w-full h-full"
-            title="3D Robot"
-          />
-        </div>
 
         {/* Main Headline */}
         <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold leading-tight text-white mb-6">
