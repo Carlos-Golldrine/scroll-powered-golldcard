@@ -59,8 +59,8 @@ const benefits = [
   },
   {
     icon: Clock,
-    title: "Nunca dorme",
-    description: "Funciona como um assistente administrativo e fiscal disponível 24/7, sempre organizado."
+    title: "Sem exaustão",
+    description: "Nunca cansa, nunca fica estressado e nunca precisa de férias. Atendimento consistente sempre."
   }
 ];
 
