@@ -11,11 +11,11 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-main">
       <Header />
       
-      {/* Hero with floating card that follows scroll */}
-      <div className="relative">
-        <HeroContent />
-        <ScrollJourneyCard />
-      </div>
+      {/* Hero content (text only - card is in ScrollJourneyCard) */}
+      <HeroContent />
+      
+      {/* Scroll journey with the single card */}
+      <ScrollJourneyCard />
       
       {/* Static sections after the scroll journey */}
       <main className="relative z-10 bg-gradient-main">

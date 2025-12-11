@@ -12,7 +12,7 @@ const HeroContent = () => {
       />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl mx-auto text-center">
           <div className="inline-block mb-6">
             <span className="text-xs uppercase tracking-[0.3em] text-primary font-medium">
               Cartão Inteligente Premium
@@ -24,11 +24,11 @@ const HeroContent = () => {
             <span className="text-gradient-blue">um Toque</span>
           </h1>
           
-          <p className="text-lg text-muted-foreground mb-8 max-w-xl">
+          <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
             Cartão inteligente, profissional e personalizável. Transforme a forma como você compartilha suas informações de contato.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="hero" size="xl">
               Peça Já o Seu!
             </Button>
