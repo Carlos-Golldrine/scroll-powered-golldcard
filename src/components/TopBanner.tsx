@@ -1,9 +1,57 @@
+import { useState, useEffect } from "react";
+
 const TopBanner = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 3,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const targetTime = new Date().getTime() + 3 * 60 * 60 * 1000;
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const difference = targetTime - now;
+
+      if (difference <= 0) {
+        clearInterval(interval);
+        setTimeLeft({ hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
+      const hours = Math.floor(difference / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      setTimeLeft({ hours, minutes, seconds });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const formatNumber = (num: number) => num.toString().padStart(2, "0");
+
   return (
-    <div className="bg-brand-orange py-2 px-4 text-center">
-      <p className="text-sm font-bold text-white uppercase tracking-wider">
-        🔥 Oferta por tempo limitado!
-      </p>
+    <div className="bg-brand-orange py-3 px-4 text-center">
+      <div className="flex items-center justify-center gap-3 flex-wrap">
+        <p className="text-sm font-bold text-white uppercase tracking-wider">
+          🔥 Oferta por tempo limitado!
+        </p>
+        <div className="flex items-center gap-1">
+          <span className="bg-white/20 text-white font-bold text-sm px-2 py-1 rounded">
+            {formatNumber(timeLeft.hours)}
+          </span>
+          <span className="text-white font-bold">:</span>
+          <span className="bg-white/20 text-white font-bold text-sm px-2 py-1 rounded">
+            {formatNumber(timeLeft.minutes)}
+          </span>
+          <span className="text-white font-bold">:</span>
+          <span className="bg-white/20 text-white font-bold text-sm px-2 py-1 rounded">
+            {formatNumber(timeLeft.seconds)}
+          </span>
+        </div>
+      </div>
     </div>
   );
 };
