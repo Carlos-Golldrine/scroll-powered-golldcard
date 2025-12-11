@@ -6,53 +6,43 @@
 
 @layer base {
   :root {
-    --background: 0 0% 3%;
-    --foreground: 45 10% 95%;
+    --background: 222 47% 11%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 6%;
-    --card-foreground: 45 10% 95%;
+    --card: 222 33% 13%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 45 10% 95%;
+    --popover: 222 33% 13%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 43 74% 49%;
-    --primary-foreground: 0 0% 3%;
+    --primary: 220 82% 48%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 45 10% 95%;
+    --secondary: 220 20% 19%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 45 5% 60%;
+    --muted: 220 20% 25%;
+    --muted-foreground: 220 10% 70%;
 
-    --accent: 43 60% 40%;
-    --accent-foreground: 45 10% 95%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 43 74% 49%;
+    --border: 220 20% 25%;
+    --input: 220 20% 25%;
+    --ring: 220 82% 48%;
 
     --radius: 0.75rem;
 
-    /* Custom tokens */
-    --gold: 43 74% 49%;
-    --gold-light: 43 80% 65%;
-    --gold-dark: 43 70% 35%;
-    --cream: 45 30% 96%;
-    --charcoal: 0 0% 8%;
-
-    /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(43, 74%, 49%) 0%, hsl(43, 80%, 65%) 50%, hsl(43, 74%, 49%) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 3%) 0%, hsl(0, 0%, 8%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(43, 74%, 55%) 0%, hsl(43, 70%, 40%) 50%, hsl(43, 60%, 30%) 100%);
-    --gradient-shine: linear-gradient(90deg, transparent 0%, hsla(43, 80%, 70%, 0.4) 50%, transparent 100%);
-
-    /* Shadows */
-    --shadow-gold: 0 20px 60px -15px hsla(43, 74%, 49%, 0.4);
-    --shadow-card: 0 25px 80px -20px hsla(0, 0%, 0%, 0.8);
-    --shadow-glow: 0 0 60px hsla(43, 74%, 49%, 0.3);
+    /* Golldrine Brand Colors */
+    --golldrine-bg: 222 47% 11%;
+    --golldrine-primary: 220 82% 48%;
+    --golldrine-light: 217 91% 60%;
+    --golldrine-dark: 220 78% 36%;
+    --golldrine-card: 222 33% 13%;
+    --golldrine-secondary: 220 20% 19%;
 
     /* Typography */
     --font-display: 'Playfair Display', serif;
@@ -66,11 +56,6 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 0 0% 3%;
-    --foreground: 45 10% 95%;
   }
 }
 
@@ -86,6 +71,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    background: linear-gradient(135deg, #111827, #0A0F16);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -94,27 +80,27 @@
 }
 
 @layer components {
-  .text-gradient-gold {
-    background: var(--gradient-gold);
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #3F83F8 0%, #1A56DB 50%, #133FA3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .bg-gradient-gold {
-    background: var(--gradient-gold);
+  .bg-gradient-main {
+    background: linear-gradient(135deg, #111827, #0A0F16);
   }
 
-  .bg-gradient-dark {
-    background: var(--gradient-dark);
+  .bg-gradient-blue {
+    background: linear-gradient(135deg, #1A56DB 0%, #3F83F8 50%, #1A56DB 100%);
   }
 
-  .shadow-gold {
-    box-shadow: var(--shadow-gold);
+  .shadow-blue {
+    box-shadow: 0 20px 60px -15px rgba(26, 86, 219, 0.4);
   }
 
-  .shadow-glow {
-    box-shadow: var(--shadow-glow);
+  .shadow-blue-glow {
+    box-shadow: 0 0 60px rgba(26, 86, 219, 0.3);
   }
 
   .card-3d {
@@ -122,56 +108,11 @@
     perspective: 1000px;
   }
 
-  .card-shine {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .card-shine::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-shine);
-    animation: shine 3s infinite;
-  }
-
-  @keyframes shine {
-    0% { left: -100%; }
-    50%, 100% { left: 100%; }
-  }
-
-  .floating {
-    animation: floating 6s ease-in-out infinite;
-  }
-
-  @keyframes floating {
-    0%, 100% { transform: translateY(0px) rotateX(5deg) rotateY(-5deg); }
-    50% { transform: translateY(-20px) rotateX(-5deg) rotateY(5deg); }
-  }
-
-  .pulse-gold {
-    animation: pulse-gold 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse-gold {
-    0%, 100% { box-shadow: 0 0 0 0 hsla(43, 74%, 49%, 0.4); }
-    50% { box-shadow: 0 0 40px 10px hsla(43, 74%, 49%, 0.2); }
-  }
-}
-
-@layer utilities {
-  .perspective-1000 {
-    perspective: 1000px;
-  }
-
   .preserve-3d {
     transform-style: preserve-3d;
   }
 
-  .backface-hidden {
-    backface-visibility: hidden;
+  .perspective-1000 {
+    perspective: 1000px;
   }
 }
