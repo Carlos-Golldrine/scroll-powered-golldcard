@@ -4,7 +4,14 @@
 
 @layer base {
   :root {
-    --background: 220 17% 17%;
+    /* Brand Colors - HSL values */
+    /* #1F2937 = hsl(220, 26%, 17%) */
+    /* #292929 = hsl(0, 0%, 16%) */
+    /* #1A56DB = hsl(220, 79%, 48%) */
+    /* #E5E5E5 = hsl(0, 0%, 90%) */
+    /* #FF7700 = hsl(28, 100%, 50%) */
+
+    --background: 220 26% 17%;
     --foreground: 0 0% 90%;
 
     --card: 0 0% 16%;
@@ -13,37 +20,37 @@
     --popover: 0 0% 16%;
     --popover-foreground: 0 0% 90%;
 
-    --primary: 220 82% 48%;
+    --primary: 220 79% 48%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 16%;
     --secondary-foreground: 0 0% 90%;
 
-    --muted: 220 17% 25%;
+    --muted: 220 26% 25%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 27 100% 50%;
+    --accent: 28 100% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 17% 25%;
-    --input: 220 17% 25%;
-    --ring: 220 82% 48%;
+    --border: 220 26% 30%;
+    --input: 220 26% 25%;
+    --ring: 220 79% 48%;
 
     --radius: 0.75rem;
 
     /* Brand Colors */
-    --brand-dark: 220 17% 17%;
+    --brand-dark: 220 26% 17%;
     --brand-darker: 0 0% 16%;
-    --brand-blue: 220 82% 48%;
+    --brand-blue: 220 79% 48%;
     --brand-light: 0 0% 90%;
-    --brand-orange: 27 100% 50%;
+    --brand-orange: 28 100% 50%;
 
     /* Typography */
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
+    --font-display: 'Codec Pro', sans-serif;
+    --font-body: 'TT Norms', sans-serif;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
