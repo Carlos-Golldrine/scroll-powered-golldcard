@@ -1,4 +1,9 @@
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MessageCircle, Bot, CalendarCheck, Smartphone } from "lucide-react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
   {
@@ -28,23 +33,76 @@ const steps = [
 ];
 
 const HowItWorksSection = () => {
+  const titleRef = useRef<HTMLDivElement>(null);
+  const stepsRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!titleRef.current || !stepsRef.current || !lineRef.current) return;
+
+    gsap.fromTo(titleRef.current,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top 85%",
+        }
+      }
+    );
+
+    // Animate the vertical line
+    gsap.fromTo(lineRef.current,
+      { scaleY: 0, transformOrigin: "top" },
+      {
+        scaleY: 1,
+        duration: 1.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: stepsRef.current,
+          start: "top 80%",
+        }
+      }
+    );
+
+    const stepItems = stepsRef.current.children;
+    gsap.fromTo(stepItems,
+      { opacity: 0, x: 30 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.5,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: stepsRef.current,
+          start: "top 80%",
+        }
+      }
+    );
+  }, []);
+
   return (
     <section className="py-20 px-6 bg-brand-dark">
       <div className="max-w-lg mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-4">
-          Como <span className="text-gradient-blue">funciona</span>
-        </h2>
-        <p className="text-center text-brand-light/70 mb-12">
-          Simples, rápido e eficiente
-        </p>
+        <div ref={titleRef} className="text-center mb-12 opacity-0">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            Como <span className="text-gradient-blue">funciona</span>
+          </h2>
+          <p className="text-brand-light/70">
+            Simples, rápido e eficiente
+          </p>
+        </div>
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-gradient-to-b from-brand-blue via-brand-orange to-brand-blue" />
+          <div ref={lineRef} className="absolute left-6 top-8 bottom-8 w-0.5 bg-gradient-to-b from-brand-blue via-brand-orange to-brand-blue" />
 
-          <div className="space-y-8">
+          <div ref={stepsRef} className="space-y-8">
             {steps.map((item, index) => (
-              <div key={index} className="relative flex gap-6">
+              <div key={index} className="relative flex gap-6 opacity-0">
                 {/* Icon circle */}
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand-darker border-2 border-brand-blue flex items-center justify-center z-10">
                   <item.icon className="w-5 h-5 text-brand-blue" />

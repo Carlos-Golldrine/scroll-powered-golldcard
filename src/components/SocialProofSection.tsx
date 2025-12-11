@@ -1,4 +1,9 @@
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Star, Quote } from "lucide-react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
@@ -22,21 +27,60 @@ const testimonials = [
 ];
 
 const SocialProofSection = () => {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!titleRef.current || !cardsRef.current) return;
+
+    gsap.fromTo(titleRef.current,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top 85%",
+        }
+      }
+    );
+
+    const cards = cardsRef.current.children;
+    gsap.fromTo(cards,
+      { opacity: 0, y: 40, scale: 0.95 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: cardsRef.current,
+          start: "top 80%",
+        }
+      }
+    );
+  }, []);
+
   return (
     <section className="py-20 px-6 section-dark">
       <div className="max-w-lg mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-4">
-          Quem usa, <span className="text-gradient-orange">recomenda</span>
-        </h2>
-        <p className="text-center text-brand-light/70 mb-12">
-          Veja o que nossos clientes dizem
-        </p>
+        <div ref={titleRef} className="text-center mb-12 opacity-0">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            Quem usa, <span className="text-gradient-orange">recomenda</span>
+          </h2>
+          <p className="text-brand-light/70">
+            Veja o que nossos clientes dizem
+          </p>
+        </div>
 
-        <div className="space-y-6">
+        <div ref={cardsRef} className="space-y-6">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="p-6 rounded-2xl bg-white/5 border border-white/10 relative"
+              className="p-6 rounded-2xl bg-white/5 border border-white/10 relative opacity-0"
             >
               <Quote className="absolute top-4 right-4 w-8 h-8 text-brand-orange/20" />
               

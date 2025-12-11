@@ -1,3 +1,6 @@
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { 
   MessageSquare, 
   Calendar, 
@@ -10,6 +13,8 @@ import {
   Clock,
   Brain
 } from "lucide-react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const benefits = [
   {
@@ -65,22 +70,74 @@ const benefits = [
 ];
 
 const BenefitsSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const itemsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!titleRef.current || !subtitleRef.current || !itemsRef.current) return;
+
+    gsap.fromTo(titleRef.current,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top 85%",
+        }
+      }
+    );
+
+    gsap.fromTo(subtitleRef.current,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        delay: 0.1,
+        scrollTrigger: {
+          trigger: subtitleRef.current,
+          start: "top 85%",
+        }
+      }
+    );
+
+    const items = itemsRef.current.children;
+    gsap.fromTo(items,
+      { opacity: 0, x: -30 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: itemsRef.current,
+          start: "top 80%",
+        }
+      }
+    );
+  }, []);
+
   return (
-    <section className="py-20 px-6 bg-brand-dark">
+    <section ref={sectionRef} className="py-20 px-6 bg-brand-dark">
       <div className="max-w-lg mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-4">
+        <h2 ref={titleRef} className="text-2xl sm:text-3xl font-bold text-center text-white mb-4 opacity-0">
           Seu assistente virtual{" "}
           <span className="text-brand-orange">completo</span>
         </h2>
-        <p className="text-center text-brand-light/70 mb-12">
+        <p ref={subtitleRef} className="text-center text-brand-light/70 mb-12 opacity-0">
           Um agente de IA que cuida de tudo pelo WhatsApp
         </p>
 
-        <div className="space-y-4">
+        <div ref={itemsRef} className="space-y-4">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="flex items-start gap-4 p-5 rounded-2xl bg-brand-darker/50 border border-white/5 transition-all duration-300 hover:border-brand-orange/30"
+              className="flex items-start gap-4 p-5 rounded-2xl bg-brand-darker/50 border border-white/5 transition-all duration-300 hover:border-brand-orange/30 opacity-0"
             >
               <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-orange/20 flex items-center justify-center">
                 <benefit.icon className="w-6 h-6 text-brand-orange" />
