@@ -1,35 +1,66 @@
-import { MessageSquare, Calendar, Bell, DollarSign, UserCheck, TrendingUp } from "lucide-react";
+import { 
+  MessageSquare, 
+  Calendar, 
+  Bell, 
+  DollarSign, 
+  FileText, 
+  Mic, 
+  UserPlus, 
+  Handshake,
+  Clock,
+  Brain
+} from "lucide-react";
 
 const benefits = [
   {
     icon: MessageSquare,
-    title: "Conversa automaticamente",
-    description: "Responde seus clientes de forma humanizada, 24 horas por dia, 7 dias por semana."
+    title: "Fala humanizada 24h",
+    description: "Atende seus clientes de forma natural e profissional, pelo WhatsApp, a qualquer hora do dia ou da noite."
   },
   {
     icon: Calendar,
-    title: "Agenda reunião/consulta",
-    description: "Marca compromissos direto na sua agenda, sem você precisar fazer nada."
+    title: "Agendamento automático",
+    description: "Conecta direto com a agenda do doutor e equipe, marcando consultas sem intervenção humana."
   },
   {
     icon: Bell,
-    title: "Lembra clientes",
-    description: "Envia lembretes automáticos para quem sempre esquece dos compromissos."
+    title: "Lembretes inteligentes",
+    description: "Lembra o cliente um dia antes e no dia da consulta, confirmando presença automaticamente."
   },
   {
     icon: DollarSign,
-    title: "Realiza cobranças",
-    description: "Cobra de forma educada e profissional, sem constrangimentos."
+    title: "Cobranças educadas",
+    description: "Realiza cobranças de forma profissional, avisa sobre vencimentos e confirma pagamentos."
   },
   {
-    icon: UserCheck,
-    title: "Reduz faltas",
-    description: "Melhora drasticamente sua taxa de comparecimento."
+    icon: Handshake,
+    title: "Negocia por você",
+    description: "Negocia condições de pagamento e resolve pendências financeiras com seus clientes."
   },
   {
-    icon: TrendingUp,
-    title: "Aumenta receita",
-    description: "Automatiza processos e aumenta seu faturamento sem esforço."
+    icon: UserPlus,
+    title: "Prospecção de clientes",
+    description: "Realiza prospecção ativa de novos clientes, aumentando sua base de forma automatizada."
+  },
+  {
+    icon: FileText,
+    title: "Emissão de notas fiscais",
+    description: "Coleta informações, envia PDFs e organiza tudo para você só revisar e confirmar."
+  },
+  {
+    icon: Brain,
+    title: "Responde perguntas",
+    description: "Responde dúvidas simples e complexas, envia checklists de documentos e guias."
+  },
+  {
+    icon: Mic,
+    title: "Escuta áudios",
+    description: "Entende e responde mensagens de áudio, facilitando a comunicação com seus clientes."
+  },
+  {
+    icon: Clock,
+    title: "Nunca dorme",
+    description: "Funciona como um assistente administrativo e fiscal disponível 24/7, sempre organizado."
   }
 ];
 
@@ -38,21 +69,21 @@ const BenefitsSection = () => {
     <section className="py-20 px-6 bg-brand-dark">
       <div className="max-w-lg mx-auto">
         <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-4">
-          Tudo que seu negócio precisa,{" "}
-          <span className="text-gradient-blue">em um só agente</span>
+          Seu assistente virtual{" "}
+          <span className="text-brand-orange">completo</span>
         </h2>
         <p className="text-center text-brand-light/70 mb-12">
-          Funcionalidades que transformam seu atendimento
+          Um agente de IA que cuida de tudo pelo WhatsApp
         </p>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="flex items-start gap-4 p-5 rounded-2xl bg-brand-darker/50 border border-white/5 transition-all duration-300 hover:border-brand-blue/30"
+              className="flex items-start gap-4 p-5 rounded-2xl bg-brand-darker/50 border border-white/5 transition-all duration-300 hover:border-brand-orange/30"
             >
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-blue/20 flex items-center justify-center">
-                <benefit.icon className="w-6 h-6 text-brand-blue" />
+              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-orange/20 flex items-center justify-center">
+                <benefit.icon className="w-6 h-6 text-brand-orange" />
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-white mb-1">
