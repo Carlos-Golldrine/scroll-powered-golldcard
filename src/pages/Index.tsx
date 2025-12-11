@@ -1,3 +1,4 @@
+import TopBanner from "@/components/TopBanner";
 import HeroSection from "@/components/HeroSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import SocialProofSection from "@/components/SocialProofSection";
@@ -9,6 +10,7 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <TopBanner />
       <HeroSection />
       <BenefitsSection />
       <SocialProofSection />
