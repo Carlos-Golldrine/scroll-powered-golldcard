@@ -33,21 +33,21 @@ const TopBanner = () => {
   const formatNumber = (num: number) => num.toString().padStart(2, "0");
 
   return (
-    <div className="bg-brand-orange py-3 px-4 text-center">
-      <div className="flex items-center justify-center gap-3 flex-wrap">
-        <p className="text-sm font-bold text-white uppercase tracking-wider">
+    <div className="bg-brand-orange py-4 px-4 text-center">
+      <div className="flex items-center justify-center gap-4 flex-wrap">
+        <p className="text-base sm:text-lg font-bold text-white uppercase tracking-wider">
           🔥 Oferta por tempo limitado!
         </p>
-        <div className="flex items-center gap-1">
-          <span className="bg-white/20 text-white font-bold text-sm px-2 py-1 rounded">
+        <div className="flex items-center gap-2">
+          <span className="bg-white/20 text-white font-bold text-lg sm:text-xl px-3 py-2 rounded-lg min-w-[48px] text-center">
             {formatNumber(timeLeft.hours)}
           </span>
-          <span className="text-white font-bold">:</span>
-          <span className="bg-white/20 text-white font-bold text-sm px-2 py-1 rounded">
+          <span className="text-white font-bold text-xl">:</span>
+          <span className="bg-white/20 text-white font-bold text-lg sm:text-xl px-3 py-2 rounded-lg min-w-[48px] text-center">
             {formatNumber(timeLeft.minutes)}
           </span>
-          <span className="text-white font-bold">:</span>
-          <span className="bg-white/20 text-white font-bold text-sm px-2 py-1 rounded">
+          <span className="text-white font-bold text-xl">:</span>
+          <span className="bg-white/20 text-white font-bold text-lg sm:text-xl px-3 py-2 rounded-lg min-w-[48px] text-center">
             {formatNumber(timeLeft.seconds)}
           </span>
         </div>
