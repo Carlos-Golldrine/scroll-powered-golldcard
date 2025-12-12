@@ -65,7 +65,7 @@ const SocialProofSection = () => {
   }, []);
 
   return (
-    <section className="py-20 px-6 section-dark">
+    <section className="py-20 px-6 bg-brand-darker">
       <div className="max-w-lg mx-auto">
         <div ref={titleRef} className="text-center mb-12 opacity-0">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
