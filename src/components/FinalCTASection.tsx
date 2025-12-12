@@ -33,7 +33,7 @@ const FinalCTASection = () => {
       <div ref={sectionRef} className="max-w-lg mx-auto text-center">
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 opacity-0">
           Pronto para{" "}
-          <span className="text-gradient-orange">transformar</span>{" "}
+          <span className="text-brand-orange">transformar</span>{" "}
           seu negócio?
         </h2>
         

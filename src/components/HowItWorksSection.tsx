@@ -98,7 +98,7 @@ const HowItWorksSection = () => {
 
         <div className="relative">
           {/* Vertical line */}
-          <div ref={lineRef} className="absolute left-6 top-8 bottom-8 w-0.5 bg-gradient-to-b from-brand-blue via-brand-orange to-brand-blue" />
+          <div ref={lineRef} className="absolute left-6 top-8 bottom-8 w-0.5 bg-brand-blue" />
 
           <div ref={stepsRef} className="space-y-8">
             {steps.map((item, index) => (

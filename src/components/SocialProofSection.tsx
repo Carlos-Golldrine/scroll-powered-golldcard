@@ -69,7 +69,7 @@ const SocialProofSection = () => {
       <div className="max-w-lg mx-auto">
         <div ref={titleRef} className="text-center mb-12 opacity-0">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-            Quem usa, <span className="text-gradient-orange">recomenda</span>
+            Quem usa, <span className="text-brand-orange">recomenda</span>
           </h2>
           <p className="text-brand-light/70">
             Veja o que nossos clientes dizem
