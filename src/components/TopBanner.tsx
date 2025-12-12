@@ -2,49 +2,48 @@ import { useState, useEffect } from "react";
 
 const STORAGE_KEY = "offer_end_time";
 
+const getOrCreateEndTime = () => {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (stored) {
+    const storedTime = parseInt(stored, 10);
+    if (storedTime > Date.now()) {
+      return storedTime;
+    }
+  }
+  const newTime = Date.now() + 3 * 60 * 60 * 1000;
+  localStorage.setItem(STORAGE_KEY, newTime.toString());
+  return newTime;
+};
+
+const calculateTimeLeft = (endTime: number) => {
+  const difference = endTime - Date.now();
+  if (difference <= 0) {
+    return { hours: 0, minutes: 0, seconds: 0 };
+  }
+  return {
+    hours: Math.floor(difference / (1000 * 60 * 60)),
+    minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+    seconds: Math.floor((difference % (1000 * 60)) / 1000),
+  };
+};
+
 const TopBanner = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    hours: 3,
-    minutes: 0,
-    seconds: 0,
-  });
+  const [endTime] = useState(() => getOrCreateEndTime());
+  const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(endTime));
 
   useEffect(() => {
-    const getTargetTime = () => {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const storedTime = parseInt(stored, 10);
-        if (storedTime > new Date().getTime()) {
-          return storedTime;
-        }
-      }
-      const newTime = new Date().getTime() + 3 * 60 * 60 * 1000;
-      localStorage.setItem(STORAGE_KEY, newTime.toString());
-      return newTime;
-    };
-
-    const targetTime = getTargetTime();
-
     const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const difference = targetTime - now;
-
-      if (difference <= 0) {
+      const newTimeLeft = calculateTimeLeft(endTime);
+      setTimeLeft(newTimeLeft);
+      
+      if (newTimeLeft.hours === 0 && newTimeLeft.minutes === 0 && newTimeLeft.seconds === 0) {
         clearInterval(interval);
-        setTimeLeft({ hours: 0, minutes: 0, seconds: 0 });
         localStorage.removeItem(STORAGE_KEY);
-        return;
       }
-
-      const hours = Math.floor(difference / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-      setTimeLeft({ hours, minutes, seconds });
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [endTime]);
 
   const formatNumber = (num: number) => num.toString().padStart(2, "0");
 
