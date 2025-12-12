@@ -3,7 +3,6 @@ import HeroSection from "@/components/HeroSection";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import BenefitsSection from "@/components/BenefitsSection";
 import SocialProofSection from "@/components/SocialProofSection";
-import LocationsSection from "@/components/LocationsSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import OfferSection from "@/components/OfferSection";
 import FinalCTASection from "@/components/FinalCTASection";
@@ -17,7 +16,6 @@ const Index = () => {
       <AnimatedCounter />
       <BenefitsSection />
       <SocialProofSection />
-      <LocationsSection />
       <HowItWorksSection />
       <OfferSection />
       <FinalCTASection />
