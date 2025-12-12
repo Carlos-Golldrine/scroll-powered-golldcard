@@ -2,6 +2,9 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Star } from "lucide-react";
+import avatarCarlos from "@/assets/avatar-carlos.jpg";
+import avatarAna from "@/assets/avatar-ana.jpg";
+import avatarRoberto from "@/assets/avatar-roberto.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,7 +15,7 @@ const testimonials = [
     text: "Reduzi 70% das faltas em consultas. O agente lembra meus pacientes automaticamente.",
     rating: 5,
     timeAgo: "2 semanas atrás",
-    avatar: "CS"
+    avatar: avatarCarlos
   },
   {
     name: "Ana Paula",
@@ -20,7 +23,7 @@ const testimonials = [
     text: "Não preciso mais ficar cobrando alunos. O agente faz isso de forma super educada.",
     rating: 5,
     timeAgo: "1 mês atrás",
-    avatar: "AP"
+    avatar: avatarAna
   },
   {
     name: "Roberto Mendes",
@@ -28,7 +31,7 @@ const testimonials = [
     text: "Meu faturamento aumentou 40% desde que automatizei o agendamento.",
     rating: 5,
     timeAgo: "3 semanas atrás",
-    avatar: "RM"
+    avatar: avatarRoberto
   }
 ];
 
@@ -110,9 +113,11 @@ const SocialProofSection = () => {
               {/* Header with avatar, name and Google logo */}
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-brand-orange flex items-center justify-center text-white font-semibold text-sm">
-                    {testimonial.avatar}
-                  </div>
+                  <img 
+                    src={testimonial.avatar} 
+                    alt={testimonial.name}
+                    className="w-10 h-10 rounded-full object-cover"
+                  />
                   <div>
                     <p className="font-semibold text-gray-900">{testimonial.name}</p>
                     <p className="text-xs text-gray-500">{testimonial.timeAgo}</p>
