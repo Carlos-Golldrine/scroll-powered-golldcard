@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+const STORAGE_KEY = "offer_end_time";
+
 const TopBanner = () => {
   const [timeLeft, setTimeLeft] = useState({
     hours: 3,
@@ -8,7 +10,20 @@ const TopBanner = () => {
   });
 
   useEffect(() => {
-    const targetTime = new Date().getTime() + 3 * 60 * 60 * 1000;
+    const getTargetTime = () => {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const storedTime = parseInt(stored, 10);
+        if (storedTime > new Date().getTime()) {
+          return storedTime;
+        }
+      }
+      const newTime = new Date().getTime() + 3 * 60 * 60 * 1000;
+      localStorage.setItem(STORAGE_KEY, newTime.toString());
+      return newTime;
+    };
+
+    const targetTime = getTargetTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
@@ -17,6 +32,7 @@ const TopBanner = () => {
       if (difference <= 0) {
         clearInterval(interval);
         setTimeLeft({ hours: 0, minutes: 0, seconds: 0 });
+        localStorage.removeItem(STORAGE_KEY);
         return;
       }
 

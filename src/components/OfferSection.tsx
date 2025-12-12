@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Clock, MessageCircle, Zap } from "lucide-react";
 
+const STORAGE_KEY = "offer_end_time";
+
 const OfferSection = () => {
   const whatsappLink = "https://wa.me/5511999999999?text=Olá! Quero aproveitar a promoção do Agente de IA.";
   
-  // 3 hours countdown
   const [timeLeft, setTimeLeft] = useState({
     hours: 3,
     minutes: 0,
@@ -12,7 +13,20 @@ const OfferSection = () => {
   });
 
   useEffect(() => {
-    const endTime = new Date().getTime() + 3 * 60 * 60 * 1000; // 3 hours from now
+    const getTargetTime = () => {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const storedTime = parseInt(stored, 10);
+        if (storedTime > new Date().getTime()) {
+          return storedTime;
+        }
+      }
+      const newTime = new Date().getTime() + 3 * 60 * 60 * 1000;
+      localStorage.setItem(STORAGE_KEY, newTime.toString());
+      return newTime;
+    };
+
+    const endTime = getTargetTime();
     
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -21,11 +35,12 @@ const OfferSection = () => {
       if (distance < 0) {
         clearInterval(timer);
         setTimeLeft({ hours: 0, minutes: 0, seconds: 0 });
+        localStorage.removeItem(STORAGE_KEY);
         return;
       }
 
       setTimeLeft({
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        hours: Math.floor(distance / (1000 * 60 * 60)),
         minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((distance % (1000 * 60)) / 1000)
       });
