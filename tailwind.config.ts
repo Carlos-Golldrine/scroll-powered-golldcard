@@ -63,8 +63,8 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         brand: {
-          dark: "hsl(220 26% 17%)",
-          darker: "hsl(0 0% 16%)",
+          dark: "hsl(220 20% 8%)",
+          darker: "hsl(220 20% 5%)",
           blue: "hsl(220 79% 48%)",
           light: "hsl(0 0% 90%)",
           orange: "hsl(28 100% 50%)",
