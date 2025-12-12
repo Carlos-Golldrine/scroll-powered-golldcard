@@ -99,7 +99,7 @@ const OfferSection = () => {
             className="inline-flex items-center gap-3 btn-primary text-lg w-full justify-center sm:w-auto"
           >
             <MessageCircle className="w-6 h-6" />
-            Garantir Minha Vaga Agora
+            Garantir Meu Chat Bot Agora
           </a>
 
           <p className="text-sm text-muted-foreground">
