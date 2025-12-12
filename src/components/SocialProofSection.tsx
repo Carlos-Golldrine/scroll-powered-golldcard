@@ -146,12 +146,6 @@ const SocialProofSection = () => {
           ))}
         </div>
 
-        {/* View all reviews link */}
-        <div className="text-center mt-6">
-          <a href="#" className="text-brand-orange hover:text-brand-orange/80 text-sm font-medium transition-colors">
-            Ver todas as avaliações no Google →
-          </a>
-        </div>
       </div>
     </section>
   );
